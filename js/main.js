@@ -49,17 +49,52 @@ function myBtnClick() {
     }
 }
 
-function submitForm(){
-    let userName = document.getElementById("userName");
-    isValidUserName(userName);
-    let password = document.getElementById("password");
-    isValidPassword(password);
-    let passwordVerifi = document.getElementById("passwordVerification");
-    isValidPasswordVerification(passwordVerifi);
-    let pnumber = document.getElementById("pNumber");
-    isValidPhone(pnumber);
-    let elementById = document.getElementById("country");
-    isValidCountry(elementById);
+function submitForm() {
+
+    function validateElement(el, req,minLen,passwordVerification, allowedCountriesList) {
+        let value = el.value;
+
+        function getErrorMsgElement(el) {
+            return el.parentElement.getElementsByClassName("valMsg")[0];
+        }
+
+        function setValidationError(el, s) {
+            getErrorMsgElement(el).innerHTML = s;
+        }
+
+        function clearValidationError(el) {
+            getErrorMsgElement(el).innerHTML ="";
+        }
+
+        if (req && !(value)){
+            console.log("Validate req - " + req +", value" +value);
+            setValidationError(el,'Required');
+        } else if (minLen && minLen > value.length){
+            setValidationError(el, "Too Short. Use at least " + minLen +" charchters");
+        } else if (passwordVerification && passwordVerification!==value){
+            setValidationError(el, "Passwords are not the same!");
+        } else if (allowedCountriesList && !(value in allowedCountriesList)) {
+            setValidationError(el, "Currently we only support " + allowedCountriesList.join(", "));
+        }
+        else {
+            clearValidationError(el);
+            return true;
+        }
+        return false;
+    }
+
+    console.log("Submit started")
+    let isValid = true;
+    const N = null;
+    isValid &= validateElement(document.getElementById("userName"),true,5);
+    isValid &= validateElement(document.getElementById("email"),true);
+    isValid &= validateElement(document.getElementById("password"),true,8);
+    isValid &= validateElement(document.getElementById("passwordVerification"),true,N,document.getElementById("password").value);
+    isValid &= validateElement(document.getElementById("pNumber"),true,10);
+    isValid &= validateElement(document.getElementById("country"),true,N,N,['USA','Israel','London']);
+    if (isValid) {
+        document.getElementById("validationPass").innerHTML = "Great! Thank you!";
+    }
 }
 
 

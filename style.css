@@ -1,0 +1,9 @@
+.valMsg {
+    color: red;
+    padding:0 15px;
+}
+
+#validationPass {
+    color: green;
+    padding:0 15px;
+}
