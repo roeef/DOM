@@ -1,3 +1,4 @@
+// listeners and accessing elements with dom
 var originalValue ="";
 function onParHover() {
     // Do on hover action
@@ -21,3 +22,16 @@ function onListClick() {
     newChild.appendChild(textNode);
     document.getElementById("itemList").appendChild(newChild);
 }
+
+// Attributes
+let aEl = document.createElement('a');
+aEl.setAttribute('href','http://www.elevationacademy.co');
+aEl.setAttribute('target','_blank');
+aEl.innerHTML = "Elevation's Website"
+document.getElementById("p2").appendChild(aEl);
+
+
+// Styling
+
+document.getElementById('div2').style.backgroundColor = "blue";
+

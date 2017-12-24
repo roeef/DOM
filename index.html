@@ -28,6 +28,30 @@
             <li>exiting item 2</li>
         </ul>
 
+        <h1>Attributes</h1>
+
+        <style>
+            .reddemo {
+                color: red;
+            }
+        </style>
+        <p id="p1" name="myfavep" data-info="I'm a paragraph"> Hello World</p>
+        <p id="p2"></p>
+        <script>
+            var para = document.getElementById('p1')
+            var attr = document.createAttribute("class");
+            attr.value = "reddemo";
+            para.attributes.setNamedItem(attr);
+        </script>
+
+        <h1>styling</h1>
+        <div id="div1"> Hello World </div>
+        <script>
+            document.getElementById('div1').style.backgroundColor = "aqua";
+        </script>
+
+        <div id="div2">Some Text</div>
+
         <script src="js/main.js"></script>
 
     </body>
