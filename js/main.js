@@ -49,4 +49,17 @@ function myBtnClick() {
     }
 }
 
+function submitForm(){
+    let userName = document.getElementById("userName");
+    isValidUserName(userName);
+    let password = document.getElementById("password");
+    isValidPassword(password);
+    let passwordVerifi = document.getElementById("passwordVerification");
+    isValidPasswordVerification(passwordVerifi);
+    let pnumber = document.getElementById("pNumber");
+    isValidPhone(pnumber);
+    let elementById = document.getElementById("country");
+    isValidCountry(elementById);
+}
+
 
