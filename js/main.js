@@ -11,3 +11,13 @@ function onParHoverFinshed (){
     let myP = document.getElementById("myP");
     myP.innerHTML=originalValue;
 }
+
+
+var elCount=1;
+
+function onListClick() {
+    let textNode = document.createTextNode("Added Element   " + elCount++);
+    let newChild = document.createElement("li");
+    newChild.appendChild(textNode);
+    document.getElementById("itemList").appendChild(newChild);
+}
