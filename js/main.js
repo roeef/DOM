@@ -35,3 +35,18 @@ document.getElementById("p2").appendChild(aEl);
 
 document.getElementById('div2').style.backgroundColor = "blue";
 
+// ex1
+let origBtnHTML;
+function myBtnClick() {
+    el = document.getElementById('btn');
+    if (el.myState) {
+        el.myState = false;
+        el.innerHTML = origBtnHTML;
+    } else {
+        el.myState = true;
+        origBtnHTML = el.innerHTML;
+        el.innerHTML = "I Was Pressed! Do it again!";
+    }
+}
+
+
